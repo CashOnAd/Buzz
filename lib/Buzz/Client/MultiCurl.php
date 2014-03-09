@@ -35,7 +35,7 @@ class MultiCurl extends AbstractCurl implements BatchClientInterface
         } while (CURLM_CALL_MULTI_PERFORM == $mrc);
 
         while ($active && CURLM_OK == $mrc) {
-            if( curl_multi_select($multi) != -1 ){
+            if( curl_multi_select($curlm) != -1 ){
                 usleep(100);
              }
             do {
